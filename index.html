@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <div class="container-cross">
+        <br><br><br><br><br>
+        <h2 style="margin-left: 27px;">Signup Form</h2>
+        <br>
+        <form id="signupForm" onsubmit="return submitForm(event)">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div><br>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <br><br>
+            <button type="submit" class="btn">Next</button>
+            <script src="app.js"></script>
+        </form>
+    </div>
+</body>
+
+</html>

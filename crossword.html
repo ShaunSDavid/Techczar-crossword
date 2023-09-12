@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>Techzar</title>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body>
+  <div class="center">
+    <header style="text-align: center">
+      <h1><span class="header-text">Crossword Puzzle</span></h1>
+    </header>
+    <div class="container">
+      <h2>00:00</h2>
+      <script src="timer.js"></script>
+    </div>
+    <div class="Tab">
+      <table>
+        <tr>
+          <!--1-->
+          <td colspan="12"></td>
+          <td class="'firewall'"><sup>1</sup>F</td>
+          <td colspan="4"></td>
+        </tr>
+        <tr>
+          <!--2-->
+          <td colspan="11"></td>
+          <td class="'wizard'"><sup>2</sup>W</td>
+          <td class="'firewall' 'wizard'">I</td>
+          <td class="'wizard'">Z</td>
+          <td class="'wizard'">A</td>
+          <td class="'wizard'">R</td>
+          <td class="'wizard'">D</td>
+        </tr>
+        <tr>
+          <!--3-->
+          <td colspan="12"></td>
+          <td class="'firewall'">R</td>
+          <td colspan="4"></td>
+        </tr>
+        <tr>
+          <!--4-->
+          <td colspan="12"></td>
+          <td class="'firewall'">E</td>
+          <td colspan="4"></td>
+        </tr>
+        <tr>
+          <!--5-->
+          <td colspan="12"></td>
+          <td class="'firewall'">W</td>
+          <td colspan="4"></td>
+        </tr>
+        <tr>
+          <!--6-->
+          <td colspan="12"></td>
+          <td class="'firewall'">A</td>
+          <td colspan="4"></td>
+        </tr>
+        <tr>
+          <!--7-->
+          <td colspan="10"></td>
+          <td class="'forbidden'"><sup>3</sup>F</td>
+          <td></td>
+          <td class="'firewall'">L</td>
+          <td colspan="4"></td>
+        </tr>
+        <tr>
+          <!--8-->
+          <td colspan="7"></td>
+          <td class="'scrollsql'"><sup>4</sup>S</td>
+          <td class="'scrollsql' 'cookies'"><sup>5</sup>C</td>
+          <td class="'scrollsql'">R</td>
+          <td class="'scrollsql' 'forbidden'">O</td>
+          <td class="'scrollsql'">L</td>
+          <td class="'firewall'">L</td>
+          <td class="'scrollsql'">S</td>
+          <td class="'scrollsql'">Q</td>
+          <td class="'scrollsql'">L</td>
+          <td></td>
+        </tr>
+        <tr>
+          <!--9-->
+          <td colspan="8"></td>
+          <td class="'cookies'">O</td>
+          <td></td>
+          <td class="'forbidden'">R</td>
+          <td colspan="6"></td>
+        </tr>
+        <tr>
+          <!--10-->
+          <td colspan="8"></td>
+          <td class="'cookies'">O</td>
+          <td></td>
+          <td class="'forbidden'">B</td>
+          <td></td>
+          <td class="'shield'"><sup>6</sup>S</td>
+          <td></td>
+          <td class="'python'"><sup>7</sup>P</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <!--11-->
+          <td class="'soulstack'"><sup>8</sup>S</td>
+          <td class="'soulstack'">O</td>
+          <td class="'soulstack'">U</td>
+          <td class="'soulstack'">L</td>
+          <td class="'soulstack'">S</td>
+          <td class="'soulstack'">T</td>
+          <td class="'soulstack'">A</td>
+          <td class="'soulstack'">C</td>
+          <td class="'soulstack' 'cookies'">K</td>
+          <td></td>
+          <td class="'forbidden'">I</td>
+          <td></td>
+          <td class="'shield'">H</td>
+          <td></td>
+          <td class="'python'">Y</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <!--12-->
+          <td colspan="8"></td>
+          <td class="'cookies'">I</td>
+          <td></td>
+          <td class="'forbidden'">D</td>
+          <td></td>
+          <td class="'shield'">I</td>
+          <td></td>
+          <td class="'python'">T</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <!--13-->
+          <td colspan="8"></td>
+          <td class="'cookies'">E</td>
+          <td></td>
+          <td class="'forbidden'">D</td>
+          <td></td>
+          <td class="'shield'">E</td>
+          <td></td>
+          <td class="'python'">H</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <!--14-->
+          <td colspan="8"></td>
+          <td class="'cookies' 'spellcode'"><sup>9</sup>S</td>
+          <td class="'spellcode'">P</td>
+          <td class="'forbidden' 'spellcode'">E</td>
+          <td class="'spellcode'">L</td>
+          <td class="'spellcode' 'shield'">L</td>
+          <td class="'spellcode'">C</td>
+          <td class="'spellcode' 'python'">O</td>
+          <td class="'spellcode'">D</td>
+          <td class="'spellcode'">E</td>
+        </tr>
+        <tr>
+          <!--15-->
+          <td colspan="10"></td>
+          <td class="'forbidden'">N</td>
+          <td></td>
+          <td class="'shield'">D</td>
+          <td></td>
+          <td class="'python'">N</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+    <div id="content">
+      <ol class="crossword-list">
+        <h2>Across</h2>
+        <li>
+          2. A skilled spellcaster or user Interface feature that guides user:
+        </li>
+        <li>4. A magical item for storing spells is also use in database:</li>
+        <li>
+          8. The Essence of a person's consciousness or a common Data
+          Structure:
+        </li>
+        <li>9. A precise sequence of instructions in magic and computing:</li>
+      </ol>
+      <ol class="crossword-list">
+        <h2>Down</h2>
+        <li>1. A protective spell in the wizarding world:</li>
+        <li>3. A prohibited forest or a response with status code 403:</li>
+        <li>5. Sweet treat enjoyed by wizards:</li>
+        <li>6. A Wizard's protective spell or a security measure:</li>
+        <li>7. Voldemorts snake Breed:</li>
+      </ol>
+    </div>
+
+    <div style="text-align: center">
+      <form onsubmit="return checkAnswer(event)">
+        <p style="font-size: large; font-weight: bold">
+          Enter the clue number and answer here:
+        </p>
+        <label for="clueNumber">Question Number:</label>
+        <input type="number" id="clueNumber" min="1" max="9" required />
+        <label for="answer">Answer:</label>
+        <input type="text" id="answer" required />
+        <button id="submitBtn" type="submit">Submit</button>
+      </form>
+    </div>
+    <br />
+    <div class="finish">
+      <button id="finishBtn" type="button" onclick="finishPuzzle()">
+        Finish
+      </button>
+    </div>
+    <script src="app.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+  </div>
+</body>
+
+</html>

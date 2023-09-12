@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:200");
+
+* {
+  /*background-color: rgb(39, 33, 33);*/
+  color: white;
+}
+body::before {
+  content: "";
+  background-image: url("https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg");
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  animation: slidein 100s infinite alternate;
+}
+body {
+  background-image: url("https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg");
+  background-size: cover;
+  -webkit-animation: slidein 100s;
+  animation: slidein 100s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}
+@keyframes slidein {
+  from {
+    background-position: top;
+    background-size: 3000px;
+  }
+  to {
+    background-position: -100px 0px;
+    background-size: 2750px;
+  }
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.center h1 {
+  text-align: center;
+  color: white;
+  font-family: "Source Code Pro", monospace;
+  text-transform: uppercase;
+}
+.header-text {
+  text-shadow: 0 0 10px #ffd700;
+  transition: text-shadow 0.3s ease;
+  transition: font-size 0.5s ease;
+}
+.header-text2 {
+  text-align: center;
+  text-shadow: 0 0 10px #ffd700;
+  transition: text-shadow 0.3s ease;
+  transition: font-size 0.5s ease;
+}
+.header-text:hover {
+  text-shadow: 0 0 20px #ffd700;
+  font-size: larger;
+}
+#ranking {
+  text-align: center;
+  font-size: large;
+}
+h2 {
+  text-shadow: 0 0 10px #ffd700;
+}
+td {
+  border: 1px solid black;
+  width: 23px;
+  height: 23px;
+  text-align: center;
+  color: white;
+  background-color: white;
+}
+
+table {
+  border-collapse: collapse;
+}
+td:empty {
+  background-color: black;
+}
+::selection {
+  color: white;
+}
+sup {
+  color: black;
+  background-color: white;
+}
+.crossword-list {
+  list-style-type: none;
+}
+#content {
+  display: flex;
+  flex-direction: row;
+  font-size: large;
+}
+input {
+  background-color: aliceblue;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  font-size: medium;
+  padding: 5px 10px;
+}
+input:hover {
+  background-color: #fff;
+  box-shadow: 0px 0px 10px 3px #fff;
+}
+button {
+  background-color: #987608; /* Gold */
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: medium;
+  padding: 5px 10px;
+}
+button:hover {
+  background-color: #ffd700;
+  box-shadow: 0px 0px 10px 3px #ffd700;
+}
+.container {
+  font-family: "Montserrat";
+  font-size: larger;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.container-cross {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.finish {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.finish button {
+  font-size: large;
+  box-shadow: inset black;
+}
+
+.results-text {
+  font-size: 2em;
+  text-align: center;
+  text-shadow: 0 0 10px #ffd700;
+  transition: text-shadow 0.3s ease;
+}
+
+.results-text:hover {
+  text-shadow: 0 0 20px #ffd700;
+}
+.retry-button {
+  font-size: large;
+  background-color: #ffd700;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: 48%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#showScoreboard {
+  margin-top: 10px;
+  margin-left: 45%;
+}
+#showScoreboard1 {
+  margin-left: 0px;
+  margin-top: 10px;
+}
+.retry-button:hover {
+  background-color: #ffa500;
+}
+#clear {
+  background-color: #fff;
+  color: white;
+  border: none;
+  margin-bottom: 0px;
+}
+#clear:hover {
+  background-color: #fff;
+  color: gray;
+  text-shadow: 0 0 20px #fff;
+}
+
+@media (max-width: 768px) {
+  .container {
+    font-size: medium;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+    padding-left: 10px;
+  }
+  .Tab {
+    padding-left: 17.5%;
+    padding-right: 17.5%;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  .retry-button {
+    margin-left: 42%;
+  }
+}
+@media (max-width: 375px) {
+  .container {
+    font-size: medium;
+  }
+  .content {
+    font-size: medium;
+    padding-left: 10px;
+  }
+  .Tab {
+    padding-left: 17.5%;
+    padding-right: 17.5%;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  .retry-button {
+    margin-left: 40%;
+  }
+}
