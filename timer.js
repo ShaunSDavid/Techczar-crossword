@@ -1,5 +1,5 @@
 const timeh = document.querySelector("h2");
-let timesecond = localStorage.getItem("startTime") || 5;
+let timesecond = localStorage.getItem("startTime") || 420;
 
 displaytime(timesecond);
 
@@ -19,6 +19,7 @@ function displaytime(sec) {
     second < 10 ? "0" : ""
   }${second}`;
 }
+
 function updateScore(name, email, score) {
   CrossDB.push().set({
     name: name,
@@ -66,9 +67,6 @@ function endtime(score) {
 
   document.body.appendChild(timeoutContainer);
 }
-function saveStartTime() {
-  localStorage.setItem("startTime", timesecond);
-}
 function showScoreboard() {
   // Show the scoreboard container
   document.getElementById("scoreboard").style.display = "block";
@@ -111,5 +109,9 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const CrossDB = firebase.database().ref("signupForm");
+
+function saveStartTime() {
+  localStorage.setItem("startTime", timesecond);
+}
 
 window.addEventListener("beforeunload", saveStartTime);
