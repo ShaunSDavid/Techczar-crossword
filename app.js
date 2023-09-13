@@ -98,12 +98,12 @@ function finishPuzzle() {
   updateScore(name, email, score);
 
   // Show the "Show Scoreboard" button
-  const showScoreboardBtn = document.getElementById("showScoreboard");
+  const showScoreboardBtn = document.getElementById("showScoreboard1");
   showScoreboardBtn.style.display = "block";
   showScoreboardBtn.style.margin = "0%";
 }
 
-function showScoreboard() {
+function showScoreboard1() {
   // Show the scoreboard container
   document.getElementById("scoreboard").style.display = "block";
 
@@ -132,6 +132,7 @@ function showScoreboard() {
       const listItem = document.createElement("li");
       listItem.textContent = `${item.name}: ${item.score}`;
       listItem.style.fontSize = "large";
+      listItem.style.color = "black";
       topScoresList.appendChild(listItem);
     });
   });
@@ -148,6 +149,7 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const CrossDB = firebase.database().ref("signupForm");
+
 function updateScore(name, email, score) {
   CrossDB.push().set({
     name: name,

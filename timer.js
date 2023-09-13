@@ -74,9 +74,6 @@ function showScoreboard() {
   const timeoutMessage = document.querySelector(".results-text");
   timeoutMessage.style.display = "none";
 
-  const showScoreboardBtn = document.querySelector(".scoreboard-btn");
-  showScoreboardBtn.style.display = "none";
-
   // Show the scoreboard container
   const scoreboardContainer = document.getElementById("scoreboard");
   scoreboardContainer.style.display = "block";
