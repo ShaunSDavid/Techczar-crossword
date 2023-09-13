@@ -70,6 +70,9 @@ function endtime(score) {
 }
 
 function showScoreboard() {
+  const timeoutContainer = document.querySelector(".timeout-container");
+  timeoutContainer.style.display = "none";
+
   // Show the scoreboard container
   const scoreboardContainer = document.getElementById("scoreboard");
   scoreboardContainer.style.display = "block";
