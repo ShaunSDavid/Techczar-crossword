@@ -73,9 +73,11 @@ function finishPuzzle() {
   const crosswordContainer = document.querySelector(".Tab");
   const form = document.querySelector("form");
   const content = document.getElementById("content");
+  const hints = document.getElementById("hints");
   crosswordContainer.style.display = "none";
   form.style.display = "none";
   content.style.display = "none";
+  hints.style.display = "none";
 
   const resultsMessage = document.createElement("div");
   resultsMessage.innerHTML = `Time Taken: ${Math.floor(timeTaken / 60)} mins ${

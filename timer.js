@@ -1,5 +1,5 @@
 const timeh = document.querySelector("h2");
-let timesecond = localStorage.getItem("startTime") || 20;
+let timesecond = localStorage.getItem("startTime") || 5;
 
 displaytime(timesecond);
 
@@ -29,12 +29,14 @@ function endtime(score) {
   const form = document.querySelector("form");
   const content = document.getElementById("content");
   const header = document.querySelector("header");
+  const hints = document.getElementById("hints");
   header.style.display = "none";
   crosswordContainer.style.display = "none";
   form.style.display = "none";
   content.style.display = "none";
   const finishBtn = document.getElementById("finishBtn");
   finishBtn.style.display = "none";
+  hints.style.display = "none";
 
   const timeoutContainer = document.createElement("div");
   timeoutContainer.style.display = "flex";
@@ -61,12 +63,14 @@ function endtime(score) {
   const showScoreboardBtn = document.createElement("button");
   showScoreboardBtn.textContent = "Show Scoreboard";
   showScoreboardBtn.classList.add("scoreboard-btn");
+  showScoreboardBtn.style.margin = "0%";
   showScoreboardBtn.addEventListener("click", showScoreboard);
   timeoutContainer.appendChild(showScoreboardBtn);
 }
 
 function showScoreboard() {
   // Show the scoreboard container
+  showScoreboardBtn.style.display = "none";
   document.getElementById("scoreboard").style.display = "block";
 
   // Reference to your Firebase database
@@ -92,6 +96,7 @@ function showScoreboard() {
       const listItem = document.createElement("li");
       listItem.textContent = `${item.name}: ${item.score}`;
       listItem.style.fontSize = "large";
+      listItem.style.color = "black";
       topScoresList.appendChild(listItem);
     });
   });
