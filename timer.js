@@ -73,6 +73,7 @@ function showScoreboard() {
   // Show the scoreboard container
   const scoreboardContainer = document.getElementById("scoreboard");
   scoreboardContainer.style.display = "block";
+  scoreboardContainer.style.marginTop = "30px";
   scoreboardContainer.style.height = "150px"; // Set a fixed height
   scoreboardContainer.style.overflowY = "auto"; // Enable vertical scrolling
 
