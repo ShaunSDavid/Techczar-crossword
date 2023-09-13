@@ -77,6 +77,9 @@ body {
 h2 {
   text-shadow: 0 0 10px #ffd700;
 }
+#hints{
+  text-shadow: 0 0 10px #ffd700;
+}
 td {
   border: 1px solid black;
   width: 23px;
