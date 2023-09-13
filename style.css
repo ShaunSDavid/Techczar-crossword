@@ -79,6 +79,7 @@ h2 {
 }
 #hints{
   text-shadow: 0 0 10px #ffd700;
+  font-size: large;
 }
 td {
   border: 1px solid black;
