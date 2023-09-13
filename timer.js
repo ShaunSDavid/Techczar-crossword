@@ -19,6 +19,13 @@ function displaytime(sec) {
     second < 10 ? "0" : ""
   }${second}`;
 }
+function updateScore(name, email, score) {
+  CrossDB.push().set({
+    name: name,
+    email: email,
+    score: score,
+  });
+}
 
 function endtime(score) {
   const crosswordContainer = document.querySelector(".Tab");
@@ -51,45 +58,58 @@ function endtime(score) {
   timeoutMessage.style.textAlign = "center";
   timeoutContainer.appendChild(timeoutMessage);
 
-  const userName = prompt("Enter your name:");
-  if (userName) {
-    usersData.push({ name: userName, score: score });
+  const showScoreboardBtn = document.createElement("button");
+  showScoreboardBtn.textContent = "Show Scoreboard";
+  showScoreboardBtn.classList.add("scoreboard-btn");
+  showScoreboardBtn.addEventListener("click", showScoreboard);
+  timeoutContainer.appendChild(showScoreboardBtn);
 
-    // Sort and display rankings
-    sortUsersByScore();
-    displayRankingsAndScores();
-
-    // Save user data
-    saveUserData();
-  }
-
-  const showScoreboardButton = document.createElement("button");
-  showScoreboardButton.textContent = "Show Scoreboard";
-  showScoreboardButton.id = "showScoreboard1";
-
-  showScoreboardButton.addEventListener("click", function () {
-    window.location.href = "score.html";
-  });
-
-  timeoutContainer.appendChild(showScoreboardButton);
   document.body.appendChild(timeoutContainer);
-}
-
-function clearScoreboard() {
-  const password = prompt("Enter the password to clear the scoreboard:");
-
-  // Check if the password is correct (replace 'your_password_here' with your actual password)
-  if (password === "Techczar@2023") {
-    usersData = [];
-    saveUserData();
-    displayRankingsAndScores();
-    alert("Scoreboard cleared successfully.");
-  } else {
-    alert("Incorrect password. Scoreboard not cleared.");
-  }
 }
 function saveStartTime() {
   localStorage.setItem("startTime", timesecond);
 }
+function showScoreboard() {
+  // Show the scoreboard container
+  document.getElementById("scoreboard").style.display = "block";
+
+  // Reference to your Firebase database
+  const scoresRef = CrossDB.orderByChild("score");
+
+  // Fetch the top scores
+  scoresRef.once("value", (snapshot) => {
+    const topScoresList = document.getElementById("topScores");
+    topScoresList.innerHTML = "";
+
+    const scoresArray = [];
+
+    snapshot.forEach((childSnapshot) => {
+      const userData = childSnapshot.val();
+      const name = userData.name;
+      const score = userData.score;
+      scoresArray.push({ name, score });
+    });
+
+    scoresArray.sort((a, b) => b.score - a.score);
+
+    scoresArray.forEach((item) => {
+      const listItem = document.createElement("li");
+      listItem.textContent = `${item.name}: ${item.score}`;
+      listItem.style.fontSize = "large";
+      topScoresList.appendChild(listItem);
+    });
+  });
+}
+const firebaseConfig = {
+  apiKey: "AIzaSyDFjHUU6aEXYx8Xu4oI0gRmoZ3IJfBaJhw",
+  authDomain: "techczar-cross.firebaseapp.com",
+  databaseURL: "https://techczar-cross-default-rtdb.firebaseio.com",
+  projectId: "techczar-cross",
+  storageBucket: "techczar-cross.appspot.com",
+  messagingSenderId: "1021179059862",
+  appId: "1:1021179059862:web:b6450d60ec83151327acb7",
+};
+firebase.initializeApp(firebaseConfig);
+const CrossDB = firebase.database().ref("signupForm");
 
 window.addEventListener("beforeunload", saveStartTime);
