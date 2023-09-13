@@ -105,7 +105,7 @@ function showScoreboard() {
   document.getElementById("scoreboard").style.display = "block";
 
   // Reference to your Firebase database
-  const scoresRef = CrossDB.orderByChild("score").limitToFirst(3); // Limit to the top 3 scores in ascending order
+  const scoresRef = CrossDB.orderByChild("score"); // Limit to the top 3 scores in ascending order
 
   // Fetch the top scores
   scoresRef.once("value", (snapshot) => {
