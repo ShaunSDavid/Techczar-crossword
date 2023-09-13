@@ -1,5 +1,5 @@
 const timeh = document.querySelector("h2");
-let timesecond = 420;
+let timesecond = localStorage.getItem("startTime") || 420;
 
 displaytime(timesecond);
 
@@ -20,15 +20,11 @@ function displaytime(sec) {
   }${second}`;
 }
 
-function updateScore(name, email, score) {
-  CrossDB.push().set({
-    name: name,
-    email: email,
-    score: score,
-  });
-}
-
 function endtime(score) {
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get("name");
+  const email = params.get("email");
+
   const crosswordContainer = document.querySelector(".Tab");
   const form = document.querySelector("form");
   const content = document.getElementById("content");
@@ -58,15 +54,17 @@ function endtime(score) {
   timeoutMessage.style.fontSize = "2.0em";
   timeoutMessage.style.textAlign = "center";
   timeoutContainer.appendChild(timeoutMessage);
+  document.body.appendChild(timeoutContainer);
+
+  updateScore(name, email, score);
 
   const showScoreboardBtn = document.createElement("button");
   showScoreboardBtn.textContent = "Show Scoreboard";
   showScoreboardBtn.classList.add("scoreboard-btn");
   showScoreboardBtn.addEventListener("click", showScoreboard);
   timeoutContainer.appendChild(showScoreboardBtn);
-
-  document.body.appendChild(timeoutContainer);
 }
+
 function showScoreboard() {
   // Show the scoreboard container
   document.getElementById("scoreboard").style.display = "block";
@@ -98,17 +96,6 @@ function showScoreboard() {
     });
   });
 }
-const firebaseConfig = {
-  apiKey: "AIzaSyDFjHUU6aEXYx8Xu4oI0gRmoZ3IJfBaJhw",
-  authDomain: "techczar-cross.firebaseapp.com",
-  databaseURL: "https://techczar-cross-default-rtdb.firebaseio.com",
-  projectId: "techczar-cross",
-  storageBucket: "techczar-cross.appspot.com",
-  messagingSenderId: "1021179059862",
-  appId: "1:1021179059862:web:b6450d60ec83151327acb7",
-};
-firebase.initializeApp(firebaseConfig);
-const CrossDB = firebase.database().ref("signupForm");
 
 function saveStartTime() {
   localStorage.setItem("startTime", timesecond);
