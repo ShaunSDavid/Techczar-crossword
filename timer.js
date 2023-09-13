@@ -1,5 +1,5 @@
 const timeh = document.querySelector("h2");
-let timesecond = localStorage.getItem("startTime") || 480;
+let timesecond = localStorage.getItem("startTime") || 10;
 
 displaytime(timesecond);
 
