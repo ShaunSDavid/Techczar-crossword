@@ -1,5 +1,5 @@
 const timeh = document.querySelector("h2");
-let timesecond = localStorage.getItem("startTime") || 5;
+let timesecond = localStorage.getItem("startTime") || 420;
 
 displaytime(timesecond);
 
@@ -55,7 +55,7 @@ function endtime(score) {
   timeoutMessage.classList.add("results-text");
   timeoutMessage.style.fontSize = "2.0em";
   timeoutMessage.style.textAlign = "center";
-  timeoutMessage.style.marginBottom = "20px";
+  timeoutMessage.style.marginTop = "0%";
   timeoutContainer.appendChild(timeoutMessage);
 
   updateScore(name, email, score);
@@ -63,7 +63,7 @@ function endtime(score) {
   const showScoreboardBtn = document.createElement("button");
   showScoreboardBtn.textContent = "Show Scoreboard";
   showScoreboardBtn.classList.add("scoreboard-btn");
-  showScoreboardBtn.style.marginTop = "20px";
+  showScoreboardBtn.style.marginTop = "0px";
   showScoreboardBtn.addEventListener("click", showScoreboard);
   timeoutContainer.appendChild(showScoreboardBtn);
   document.body.appendChild(timeoutContainer);
