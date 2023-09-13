@@ -55,6 +55,7 @@ function endtime(score) {
   timeoutMessage.classList.add("results-text");
   timeoutMessage.style.fontSize = "2.0em";
   timeoutMessage.style.textAlign = "center";
+  timeoutMessage.style.marginBottom = "20px";
   timeoutContainer.appendChild(timeoutMessage);
 
   updateScore(name, email, score);
@@ -62,7 +63,7 @@ function endtime(score) {
   const showScoreboardBtn = document.createElement("button");
   showScoreboardBtn.textContent = "Show Scoreboard";
   showScoreboardBtn.classList.add("scoreboard-btn");
-  showScoreboardBtn.style.margin = "0%";
+  showScoreboardBtn.style.marginTop = "20px";
   showScoreboardBtn.addEventListener("click", showScoreboard);
   timeoutContainer.appendChild(showScoreboardBtn);
   document.body.appendChild(timeoutContainer);
