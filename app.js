@@ -105,25 +105,34 @@ function showScoreboard() {
   document.getElementById("scoreboard").style.display = "block";
 
   // Reference to your Firebase database
-  const scoresRef = CrossDB.orderByChild("score").limitToLast(3); // Limit to the top 3 scores
+  const scoresRef = CrossDB.orderByChild("score").limitToFirst(3); // Limit to the top 3 scores in ascending order
 
   // Fetch the top scores
   scoresRef.once("value", (snapshot) => {
     const topScoresList = document.getElementById("topScores");
     topScoresList.innerHTML = ""; // Clear previous scores
 
+    const scoresArray = []; // Store scores in an array
+
     snapshot.forEach((childSnapshot) => {
       const userData = childSnapshot.val();
       const name = userData.name;
       const score = userData.score;
+      scoresArray.push({ name, score }); // Push each score to the array
+    });
 
-      // Create a list item for each top score
+    // Sort the scores in descending order
+    scoresArray.sort((a, b) => b.score - a.score);
+
+    // Create list items for the sorted scores
+    scoresArray.forEach((item) => {
       const listItem = document.createElement("li");
-      listItem.textContent = `${name}: ${score}`;
+      listItem.textContent = `${item.name}: ${item.score}`;
       topScoresList.appendChild(listItem);
     });
   });
 }
+
 const firebaseConfig = {
   apiKey: "AIzaSyDFjHUU6aEXYx8Xu4oI0gRmoZ3IJfBaJhw",
   authDomain: "techczar-cross.firebaseapp.com",
