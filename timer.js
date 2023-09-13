@@ -56,7 +56,6 @@ function endtime(score) {
   timeoutMessage.style.fontSize = "2.0em";
   timeoutMessage.style.textAlign = "center";
   timeoutContainer.appendChild(timeoutMessage);
-  document.body.appendChild(timeoutContainer);
 
   updateScore(name, email, score);
 
@@ -66,6 +65,7 @@ function endtime(score) {
   showScoreboardBtn.style.margin = "0%";
   showScoreboardBtn.addEventListener("click", showScoreboard);
   timeoutContainer.appendChild(showScoreboardBtn);
+  document.body.appendChild(timeoutContainer);
 }
 
 function showScoreboard() {
@@ -97,6 +97,7 @@ function showScoreboard() {
       listItem.style.fontSize = "large";
       listItem.style.color = "black";
       topScoresList.appendChild(listItem);
+      document.appendChild(topScoresList);
     });
   });
 }
