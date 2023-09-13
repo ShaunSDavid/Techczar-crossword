@@ -71,9 +71,18 @@ function endtime(score) {
 
 function showScoreboard() {
   // Show the scoreboard container
+  const timeoutMessage = document.querySelector(".results-text");
+  timeoutMessage.style.display = "none";
+
+  const showScoreboardBtn = document.querySelector(".scoreboard-btn");
+  showScoreboardBtn.style.display = "none";
+
+  // Show the scoreboard container
   const scoreboardContainer = document.getElementById("scoreboard");
   scoreboardContainer.style.display = "block";
-  scoreboardContainer.style.marginTop = "30px";
+  scoreboardContainer.style.marginTop = "30px"; // Adjust the margin
+  scoreboardContainer.style.maxHeight = "300px"; // Set a max height for scrolling
+  scoreboardContainer.style.overflowY = "auto";
 
   // Reference to your Firebase database
   const scoresRef = CrossDB.orderByChild("score");

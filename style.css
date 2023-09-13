@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:200");
 
 * {
-  /*background-color: rgb(39, 33, 33);*/
   color: white;
 }
 body::before {
