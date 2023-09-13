@@ -44,7 +44,7 @@ function endtime(score) {
   timeoutContainer.style.alignItems = "center";
   timeoutContainer.style.justifyContent = "center";
   timeoutContainer.style.position = "fixed";
-  timeoutContainer.style.top = "10%";
+  timeoutContainer.style.top = "10px";
   timeoutContainer.style.right = "0";
   timeoutContainer.style.bottom = "-50px";
   timeoutContainer.style.left = "0";
