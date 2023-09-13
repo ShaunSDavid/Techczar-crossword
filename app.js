@@ -98,6 +98,7 @@ function finishPuzzle() {
   // Show the "Show Scoreboard" button
   const showScoreboardBtn = document.getElementById("showScoreboard");
   showScoreboardBtn.style.display = "block";
+  showScoreboardBtn.style.margin = "0%";
 }
 
 function showScoreboard() {
@@ -128,6 +129,7 @@ function showScoreboard() {
     scoresArray.forEach((item) => {
       const listItem = document.createElement("li");
       listItem.textContent = `${item.name}: ${item.score}`;
+      listItem.style.fontSize = "large";
       topScoresList.appendChild(listItem);
     });
   });
