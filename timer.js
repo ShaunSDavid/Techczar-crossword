@@ -64,12 +64,12 @@ function endtime(score) {
   showScoreboardBtn.textContent = "Show Scoreboard";
   showScoreboardBtn.classList.add("scoreboard-btn");
   showScoreboardBtn.style.marginTop = "0px";
-  showScoreboardBtn.addEventListener("click", showScoreboard);
+  showScoreboardBtn.addEventListener("click", showScoreboard1);
   timeoutContainer.appendChild(showScoreboardBtn);
   document.body.appendChild(timeoutContainer);
 }
 
-function showScoreboard() {
+function showScoreboard1() {
   // Show the scoreboard container
   const timeoutMessage = document.querySelector(".results-text");
   timeoutMessage.style.display = "none";

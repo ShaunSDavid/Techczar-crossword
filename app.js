@@ -69,7 +69,7 @@ function checkAnswer(event) {
 
 function finishPuzzle() {
   clearInterval(countdown);
-  const timeTaken = 420 - timesecond;
+  const timeTaken = 480 - timesecond;
   const crosswordContainer = document.querySelector(".Tab");
   const form = document.querySelector("form");
   const content = document.getElementById("content");
@@ -98,12 +98,12 @@ function finishPuzzle() {
   updateScore(name, email, score);
 
   // Show the "Show Scoreboard" button
-  const showScoreboardBtn = document.getElementById("showScoreboard1");
+  const showScoreboardBtn = document.getElementById("showScoreboard");
   showScoreboardBtn.style.display = "block";
   showScoreboardBtn.style.margin = "0%";
 }
 
-function showScoreboard1() {
+function showScoreboard() {
   // Show the scoreboard container
   document.getElementById("scoreboard").style.display = "block";
 
