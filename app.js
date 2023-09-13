@@ -94,6 +94,35 @@ function finishPuzzle() {
 
   // Call updateScore function here
   updateScore(name, email, score);
+
+  // Show the "Show Scoreboard" button
+  const showScoreboardBtn = document.getElementById("showScoreboard");
+  showScoreboardBtn.style.display = "block";
+}
+
+function showScoreboard() {
+  // Show the scoreboard container
+  document.getElementById("scoreboard").style.display = "block";
+
+  // Reference to your Firebase database
+  const scoresRef = CrossDB.orderByChild("score").limitToLast(3); // Limit to the top 3 scores
+
+  // Fetch the top scores
+  scoresRef.once("value", (snapshot) => {
+    const topScoresList = document.getElementById("topScores");
+    topScoresList.innerHTML = ""; // Clear previous scores
+
+    snapshot.forEach((childSnapshot) => {
+      const userData = childSnapshot.val();
+      const name = userData.name;
+      const score = userData.score;
+
+      // Create a list item for each top score
+      const listItem = document.createElement("li");
+      listItem.textContent = `${name}: ${score}`;
+      topScoresList.appendChild(listItem);
+    });
+  });
 }
 const firebaseConfig = {
   apiKey: "AIzaSyDFjHUU6aEXYx8Xu4oI0gRmoZ3IJfBaJhw",
