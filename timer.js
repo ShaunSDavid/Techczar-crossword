@@ -70,7 +70,6 @@ function endtime(score) {
 
 function showScoreboard() {
   // Show the scoreboard container
-  showScoreboardBtn.style.display = "none";
   document.getElementById("scoreboard").style.display = "block";
 
   // Reference to your Firebase database
