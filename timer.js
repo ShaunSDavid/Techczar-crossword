@@ -97,7 +97,6 @@ function showScoreboard() {
       listItem.style.fontSize = "large";
       listItem.style.color = "black";
       topScoresList.appendChild(listItem);
-      document.appendChild(topScoresList);
     });
   });
 }
