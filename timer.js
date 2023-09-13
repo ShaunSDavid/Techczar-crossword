@@ -71,7 +71,10 @@ function endtime(score) {
 
 function showScoreboard() {
   // Show the scoreboard container
-  document.getElementById("scoreboard").style.display = "block";
+  const scoreboardContainer = document.getElementById("scoreboard");
+  scoreboardContainer.style.display = "block";
+  scoreboardContainer.style.height = "150px"; // Set a fixed height
+  scoreboardContainer.style.overflowY = "auto"; // Enable vertical scrolling
 
   // Reference to your Firebase database
   const scoresRef = CrossDB.orderByChild("score");
