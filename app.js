@@ -6,8 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (now < accessDate) {
     // If the current date is before the access date, disable the registration form
     const form = document.getElementById("signupForm");
-    form.innerHTML = `<p>Registration will be available on ${accessDate.toLocaleString()}.</p>`;
-    form.style.color = "black";
+    form.innerHTML = `<p style="color:black;">Registration will be available on ${accessDate.toLocaleString()}.</p>`;
   }
 });
 
