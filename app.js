@@ -1,3 +1,15 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const registrationContainer = document.querySelector(".container-cross");
+  const accessDate = new Date(registrationContainer.dataset.accessDate);
+  const now = new Date();
+
+  if (now < accessDate) {
+    // If the current date is before the access date, disable the registration form
+    const form = document.getElementById("signupForm");
+    form.innerHTML = `<p>Registration will be available on ${accessDate.toLocaleString()}.</p>`;
+  }
+});
+
 function submitForm(event) {
   event.preventDefault();
 
