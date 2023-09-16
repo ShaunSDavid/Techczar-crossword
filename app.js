@@ -1,17 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   const registrationContainer = document.querySelector(".container-cross");
   const accessDate = new Date(registrationContainer.dataset.accessDate);
-  const endDate = new Date(registrationContainer.dataset.endDate); // Add this line
   const now = new Date();
 
   if (now < accessDate) {
     // If the current date is before the access date, disable the registration form
     const form = document.getElementById("signupForm");
     form.innerHTML = `<p style="color:black; padding-left:30px;">Registration will be available on ${accessDate.toLocaleString()}.</p>`;
-  } else if (now > endDate) {
-    // If the current date is after the end date, display a message
-    const form = document.getElementById("signupForm");
-    form.innerHTML = `<p style="color:black; padding-left:10px;">Event has Ended.</p>`;
   }
 });
 
